@@ -83,12 +83,9 @@ class PemasukanController extends Controller
                          }
 
                       });
-        })->download('xlsx');
-
-        // ->store('xls', storage_path('export'));
+        })->store('xls', public_path('export\\'));
 
     }
 }
 
 
-// 'user_id', 'date_created', 'time_created','nama_transaksi','jumlah','kategori_id','nama_bukti','lokasi',

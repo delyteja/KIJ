@@ -30,3 +30,11 @@ Route::prefix('pemasukan')->group(function()
 	Route::get('/gaji_tunjangan','PemasukanController@gaji_tunjangan');
 });
 
+Route::prefix('pengeluaran')->group(function()
+{
+	Route::get('/create','PengeluaranController@create')->name('tambah_pengeluaran');
+	Route::get('/edit/{id}','PengeluaranController@edit');
+	Route::get('/delete/{id}','PengeluaranController@delete');
+	Route::post('/store','PengeluaranController@store');
+	Route::get('/histori/{opsi}', 'PengeluaranController@histori')->name('histori');
+});

@@ -31,8 +31,8 @@
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="/"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
 <<<<<<< HEAD
+        <li class="active"><a href="{{ route('home') }}"><i class="fa fa-link"></i> <span>Home</span></a></li>
         <li class="treeview">
             <a href="#"><i class="fa fa-link"></i><span>Pemasukan</span>
               <span class="pull-right-container">
@@ -121,6 +121,94 @@
         
         
         
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>Pengeluaran</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          
+          <ul class="treeview-menu">
+            
+            <li>
+              <a href="#"><i class="fa fa-link"></i> <span>Pengeluaran Rutin</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              
+              <ul class="treeview-menu">
+                
+                <li>
+                  <a href="{{ route('histori', 'Tagihan Listrik') }}"><i class="fa fa-link"></i> <span>Tagihan Listrik</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ route('histori', 'Tagihan Air') }}"><i class="fa fa-link"></i> <span>Tagihan Air</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ route('histori', 'Biaya Sekolah') }}"><i class="fa fa-link"></i> <span>Biaya Sekolah</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ route('histori', 'Pajak Bulanan') }}"><i class="fa fa-link"></i> <span>Pajak Bulanan</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ route('histori', 'Sewa Rumah') }}"><i class="fa fa-link"></i> <span>Sewa Rumah</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                </li>
+
+              </ul>
+
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-link"></i> <span>Pengeluaran Tidak Tentu</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              
+              <ul class="treeview-menu">
+                
+                <li>
+                  <a href="{{ route('histori', 'Pembayaran Hutang') }}"><i class="fa fa-link"></i> <span>Pembayaran Hutang</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ route('histori', 'Lain Lain') }}"><i class="fa fa-link"></i> <span>Lain Lain</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                </li>
+
+              </ul>
+
+            </li>
+
+          </ul>
+
+        </li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

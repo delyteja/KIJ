@@ -30,3 +30,12 @@ Route::prefix('pemasukan')->group(function()
 	Route::get('/gaji_tunjangan','PemasukanController@gaji_tunjangan');
 });
 
+Route::prefix('pengeluaran')->group(function()
+{
+	Route::get('/create','PengeluaranController@create');
+	Route::get('/edit/{id}','PengeluaranController@edit');
+	Route::get('/delete/{id}','PengeluaranController@delete');
+	Route::post('/store','PengeluaranController@store');
+	Route::get('/tagihan_listrik','PengeluaranController@tagihan_listrik');
+	Route::get('/tagihan_air','PengeluaranController@tagihan_air');
+});

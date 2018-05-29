@@ -47,21 +47,21 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="{{URL::to('pemasukan/gaji_pokok')}}"><i class="fa fa-link"></i> <span>Gaji Pokok</span>
+                            <a href="{{URL::to('pemasukan/detail/1')}}"><i class="fa fa-link"></i> <span>Gaji Pokok</span>
                               <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                               </span>
                             </a>        
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-link"></i> <span>Gaji Tunjangan</span>
+                            <a href="{{URL::to('pemasukan/detail/2')}}"><i class="fa fa-link"></i> <span>Gaji Tunjangan</span>
                               <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                               </span>
                             </a>        
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-link"></i> <span>Pembayaran Kos</span>
+                            <a href="{{URL::to('pemasukan/detail/3')}}"><i class="fa fa-link"></i> <span>Pembayaran Kos</span>
                               <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                               </span>
@@ -81,14 +81,14 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="#"><i class="fa fa-link"></i> <span>Panen Padi</span>
+                            <a href="{{URL::to('pemasukan/detail/4')}}"><i class="fa fa-link"></i> <span>Panen Padi</span>
                               <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                               </span>
                             </a>        
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-link"></i> <span>Panen Rempah Rempah</span>
+                            <a href="{{URL::to('pemasukan/detail/5')}}"><i class="fa fa-link"></i> <span>Panen Rempah Rempah</span>
                               <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                               </span>
@@ -106,7 +106,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="#"><i class="fa fa-link"></i> <span>Pembayaran Sewa Rumah</span>
+                            <a href="{{URL::to('pemasukan/detail/6')}}"><i class="fa fa-link"></i> <span>Pembayaran Sewa Rumah</span>
                               <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                               </span>

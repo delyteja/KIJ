@@ -27,7 +27,8 @@ Route::prefix('pemasukan')->group(function()
 	Route::get('/delete/{id}','PemasukanController@delete');
 	Route::post('/store','PemasukanController@store');
 	Route::get('/gaji_pokok','PemasukanController@gaji_pokok');
-	Route::get('/gaji_tunjangan','PemasukanController@gaji_tunjangan');
+	Route::get('/detail/{id}','PemasukanController@detail');
+	Route::get('/excel/{id}','PemasukanController@excel');
 });
 
 Route::prefix('pengeluaran')->group(function()

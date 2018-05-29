@@ -67,6 +67,24 @@
     <!-- ./wrapper -->
     <!-- REQUIRED JS SCRIPTS -->
     <!-- jQuery 2.1.3 -->
+
+    @if (session()->has('sukses'))
+            <div class="container">
+                <div class="alert alert-success col-md-11">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ session()->get('sukses') }}
+                </div>
+            </div>
+    @endif
+
+    @if (session()->has('gagal'))
+            <div class="container">
+                <div class="alert alert-danger  col-md-11">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ session()->get('gagal') }}
+                </div>
+            </div>
+    @endif
     <script src="{{ asset ("/bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js") }}"></script>
     <!-- Bootstrap 3.3.2 JS -->
     <script src="{{ asset ("/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>

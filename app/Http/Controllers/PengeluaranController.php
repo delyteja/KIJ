@@ -44,6 +44,8 @@ class PengeluaranController extends Controller
          $user = User::findOrFail(Auth::User()->id);
          $user->total -= $request->jumlah;
          $user->save();
+
+         return view('home');
     }
 
     public function histori($opsi)

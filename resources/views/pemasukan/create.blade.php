@@ -1,8 +1,7 @@
 @extends('layouts.main')
 
 @section('action-content')
-<!-- 'user_id', 'date_created', 'time_created','nama_transaksi','jumlah','kategori_id','nama_bukti','lokasi',
- -->		<section class="content-header">
+		<section class="content-header">
                 <h1 style="text-align: center;"><b> Menambah Pemasukan</b></h1>
             </section>
             <div class="panel-body">
@@ -47,18 +46,15 @@
                                 <label for="nama_transaksi" class="col-md-4 control-label">Nama Transaksi</label>
                                 <div class="col-md-4">
                                 <select class="form-control" name="nama_transaksi">
-                                    <option value="1">Gaji Pokok</option>
-                                    <option value="2">Gaji Tunjangan</option>
-                                    <option value="3">Pembayaran Kos</option>
-                                    <option value="4">Panen Padi</option>
-                                    <option value="5">Panen Rempah-rempah</option>
-                                    <option value="6">Pembayaran Sewa Rumah</option>
+                                    @foreach($kategori as $k)
+                                    <option value="{{$k->id}}">{{$k->nama_kategori}}</option>
+                                    @endforeach
                                 </select>
                                 </div>
                             </div>
                             
                             <div class="form-group{{ $errors->has('jumlah') ? ' has-error' : '' }}">
-                                <label for="jumlah" class="col-md-4 control-label">Jumlah</label>
+                                <label for="jumlah" class="col-md-4 control-label">Jumlah   Rp</label>
                                 <div class="col-md-4">
                                     <input id="jumlah" type="number" class="form-control" name="jumlah" required>
                                     @if ($errors->has('jumlah'))

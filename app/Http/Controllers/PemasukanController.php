@@ -9,12 +9,13 @@ use App\Pemasukan;
 use App\User;
 use App\Kategori_Pemasukan;
 use Auth;
+use Excel;
 
 class PemasukanController extends Controller
 {
     public function create()
-    {
-    	return view('pemasukan.create');
+    {   $kategori = Kategori_Pemasukan::all();
+    	return view('pemasukan.create',compact('kategori'));
     }
     public function store(Request $request)
     {  //dd($request->nama_transaksi);   
@@ -39,14 +40,53 @@ class PemasukanController extends Controller
          $user = User::findOrFail(Auth::User()->id);
          $user->total += $request->jumlah;
          $user->save();
+         return view('home');
     }
-    public function gaji_pokok()
-    {
-    	$pemasukan = Pemasukan::where('kategori_id','1')->get();
-    	$p = Pemasukan::where('kategori_id','1')->first();
-    	$judul = $p->nama_transaksi;
+    public function detail($id)
+    {  
+    	$pemasukan = Pemasukan::where('kategori_id',$id)->get();
+    	$kategori = Kategori_Pemasukan::findOrFail($id);
     	
-    	return view('pemasukan.pemasukan_rutin.gaji_pokok',compact('pemasukan','judul'));
+    	return view('pemasukan.detail',compact('pemasukan','kategori'));
+    }
+    public function delete($id)
+    {
+        $del = Pemasukan::findorfail($id);
+        $id = $del->kategori_id;
+        $del->delete();
+        return redirect()->action('PemasukanController@detail',['id'=>$id])->with('sukses', 'Pemasukan Berhasil Dihapus');
+    }
+
+    public function excel($id)
+    {
+        setlocale(LC_ALL, 'IND');
+        $pemasukan=Pemasukan::where('kategori_id',$id)->get(); 
+        Excel::create('Daftar Pemasukan', function($excel) use ($pemasukan)
+        {
+                      $excel->setTitle('Daftar Pemasukan');
+                      $excel->setCreator('Laravel-5.6')->setCompany('KIJ F');
+                      $excel->sheet('Excel sheet', function($sheet) use ($pemasukan) 
+                      {
+                        $sheet->row(1, function ($row) 
+                        {
+                            $row->setFontFamily('Arial');
+                            $row->setFontSize(15);
+                            $row->setFontWeight('bold');
+                        });
+                          $sheet->mergeCells("A1".":E1");
+                          $sheet->row(1, array('Daftar Pemasukan','','','',''));
+                          $sheet->row(2, array('No','Tanggal','Waktu','Tempat Transaksi','jumlah'));
+                           foreach ($pemasukan as $i => $rows) 
+                          {
+                              $sheet->row($i+3, array($i+1,strftime(" %d %b %Y", strtotime($rows->date_created)),$rows->time_created,$rows->lokasi,$rows->jumlah
+                                ));
+                         }
+
+                      });
+        })->download('xlsx');
+
+        // ->store('xls', storage_path('export'));
+
     }
 }
 

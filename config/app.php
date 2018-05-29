@@ -160,6 +160,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Mews\Captcha\CaptchaServiceProvider::class,
 
 
     ],
@@ -213,8 +214,7 @@ return [
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
         'Input' => Illuminate\Support\Facades\Input::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-
-
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
 
     ],
 

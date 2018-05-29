@@ -31,7 +31,7 @@
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="/"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+        <li class="active"><a href="{{ route('home') }}"><i class="fa fa-link"></i> <span>Home</span></a></li>
         <li class="treeview">
             <a href="#"><i class="fa fa-link"></i><span>Pemasukan</span>
               <span class="pull-right-container">

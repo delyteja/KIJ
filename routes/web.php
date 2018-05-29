@@ -32,7 +32,7 @@ Route::prefix('pemasukan')->group(function()
 
 Route::prefix('pengeluaran')->group(function()
 {
-	Route::get('/create','PengeluaranController@create');
+	Route::get('/create','PengeluaranController@create')->name('tambah_pengeluaran');
 	Route::get('/edit/{id}','PengeluaranController@edit');
 	Route::get('/delete/{id}','PengeluaranController@delete');
 	Route::post('/store','PengeluaranController@store');

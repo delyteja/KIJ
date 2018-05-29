@@ -6,7 +6,7 @@
   <h4><i class="fa fa-university"></i> Pengeluaran {{$judul}}</h4><hr>
     <div class=row>
         <div class="col-md-6">
-            <a href="#" class="btn btn-primary">
+            <a href="{{ route('tambah_pengeluaran') }}" class="btn btn-primary">
             <i class="fa fa-plus-circle"></i> Tambah Pengeluaran</a>
         </div>
       <div class="col-md-2">

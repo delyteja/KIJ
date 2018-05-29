@@ -209,12 +209,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-<<<<<<< HEAD
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
         'Input' => Illuminate\Support\Facades\Input::class,
         'Image'     => Intervention\Image\Facades\Image::class,
-=======
->>>>>>> 9d453816c067685c40ec610f860e5d1dc1abf07b
+
 
     ],
 

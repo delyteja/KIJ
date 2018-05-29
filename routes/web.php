@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-<<<<<<< HEAD
+
 Route::get('refresh_captcha', 'HomeController@refreshCaptcha')->name('refresh_captcha');
 
 
@@ -31,5 +31,4 @@ Route::prefix('pemasukan')->group(function()
 	Route::get('/gaji_pokok','PemasukanController@gaji_pokok');
 	Route::get('/gaji_tunjangan','PemasukanController@gaji_tunjangan');
 });
-=======
->>>>>>> 9d453816c067685c40ec610f860e5d1dc1abf07b
+

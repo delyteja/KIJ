@@ -59,7 +59,7 @@
     <!-- Main Header -->
     @include('layouts.header')
     <!-- Sidebar -->
-    <!-- @include('layouts.sidebar') -->
+    @include('layouts.sidebar')
     @yield('content')
     <!-- /.content-wrapper -->
     <!-- Footer -->

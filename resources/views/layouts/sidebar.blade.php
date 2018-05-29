@@ -117,11 +117,6 @@
             </ul>
 
         </li>
-        
-<<<<<<< HEAD
-        
-        
-=======
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Pengeluaran</span>
             <span class="pull-right-container">
@@ -210,7 +205,6 @@
           </ul>
 
         </li>
->>>>>>> pengeluaran
       </ul>
       <!-- /.sidebar-menu -->
     </section>

@@ -56,14 +56,4 @@ class PengeluaranController extends Controller
     	
     	return view('pengeluaran.histori',compact('pengeluaran','judul'));
     }
-
-    public function tagihan_listrik()
-    {
-    	$kategori = Kategori_Pengeluaran::where('nama_kategori', 'tagihan_listrik')->get();
-    	$pemasukan = Pengeluaran::where('kategori_id',$kategori->id)->get();
-    	$p = Pengeluaran::where('kategori_id',$kategori_id)->first();
-    	$judul = $p->nama_transaksi;
-    	
-    	return view('pengeluaran.histori',compact('pengeluaran','judul'));
-    }
 }

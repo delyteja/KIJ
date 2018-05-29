@@ -8,6 +8,6 @@ class Kategori_Pengeluaran extends Model
 {
     protected $table = 'kategori_pengeluaran';
     protected $fillable = [
-        'nama_kategori',
+        'id', 'nama_kategori',
     ];
 }

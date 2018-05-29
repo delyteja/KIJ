@@ -27,7 +27,7 @@ class PengeluaranController extends Controller
     	$p->date_created = $request->tanggal;
     	$p->time_created = $request->waktu;
 
-    	$q = Kategori_Pemasukan::findOrFail($request->nama_transaksi);
+    	$q = Kategori_Pengeluaran::findOrFail($request->nama_transaksi);
     	$p->nama_transaksi = $q->nama_kategori;
     	$p->jumlah = $request->jumlah;
     	$p->kategori_id = $request->nama_transaksi;
@@ -44,6 +44,17 @@ class PengeluaranController extends Controller
          $user = User::findOrFail(Auth::User()->id);
          $user->total -= $request->jumlah;
          $user->save();
+    }
+
+    public function histori($opsi)
+    {
+    	$kategori = Kategori_Pengeluaran::where('nama_kategori', $opsi)->get();
+    	$pengeluaran = Pengeluaran::where('kategori_id',$kategori[0]->id)->get();
+    	// dd($pemasukan);
+    	$p = Pengeluaran::where('kategori_id',$kategori[0]->id)->first();
+    	$judul = $p->nama_transaksi;
+    	
+    	return view('pengeluaran.histori',compact('pengeluaran','judul'));
     }
 
     public function tagihan_listrik()

@@ -36,6 +36,7 @@ Route::prefix('pengeluaran')->group(function()
 	Route::get('/edit/{id}','PengeluaranController@edit');
 	Route::get('/delete/{id}','PengeluaranController@delete');
 	Route::post('/store','PengeluaranController@store');
+	Route::get('/histori/{opsi}', 'PengeluaranController@histori')->name('histori');
 	Route::get('/tagihan_listrik','PengeluaranController@tagihan_listrik');
 	Route::get('/tagihan_air','PengeluaranController@tagihan_air');
 });

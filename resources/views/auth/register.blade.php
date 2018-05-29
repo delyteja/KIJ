@@ -67,7 +67,7 @@
                             <div class="col-md-6">
                                 <div class="captcha">
                                     <span>{!! captcha_img() !!}</span>
-                                    <button type="button" class="btn btn-success btn-refresh" style="position: sticky;">Refresh</button>
+                                    <button type="button" class="btn btn-success btn-refresh">Refresh</button>
                                 </div>
                                 <input type="text" id="captcha" name="captcha" class="form-control{{ $errors->has('captcha') ? ' is-invalid' : '' }}"  placeholder="Masukkan captcha">
                                 @if ($errors->has('captcha'))

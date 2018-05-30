@@ -40,7 +40,7 @@ class PemasukanController extends Controller
          $user = User::findOrFail(Auth::User()->id);
          $user->total += $request->jumlah;
          $user->save();
-         return view('home');
+         return redirect()->action('HomeController@index');
     }
     public function detail($id)
     {  

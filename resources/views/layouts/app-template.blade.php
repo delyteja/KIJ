@@ -27,6 +27,8 @@
       -->
     <link href="{{ asset("/bower_components/AdminLTE/dist/css/skins/_all-skins.min.css")}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/app-template.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('sb_admin/vendor/morrisjs/morris.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -101,6 +103,16 @@
     <!-- AdminLTE App -->
     <script src="{{ asset ("/bower_components/AdminLTE/dist/js/app.min.js") }}" type="text/javascript"></script>
     <script src="{{ asset ("/bower_components/AdminLTE/dist/js/demo.js") }}" type="text/javascript"></script>
+    
+    <!-- Morris and Raphael JS -->
+    <script src="{{ asset('sb_admin/vendor/metisMenu/metisMenu.min.js') }}"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="{{ asset('sb_admin/vendor/raphael/raphael.min.js') }}"></script>
+    <script src="{{ asset('sb_admin/vendor/morrisjs/morris.min.js') }}"></script>
+    @yield('new_js')
+
+    
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
       Both of these plugins are recommended to enhance the
       user experience. Slimscroll is required when using the

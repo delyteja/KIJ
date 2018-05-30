@@ -26,6 +26,11 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function validasi()
+    {
+        return view('validasi');
+    }
+
     public function refreshCaptcha()
     {
         return response()->json(['captcha' => captcha_img()]);

@@ -16,6 +16,7 @@ Route::get('/', 'IndexController@index')->name('basic_index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/validasi', 'HomeController@validasi')->name('validasi');
 
 Route::get('refresh_captcha', 'HomeController@refreshCaptcha')->name('refresh_captcha');
 

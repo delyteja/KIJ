@@ -86,6 +86,9 @@
             </div>
     @endif
     <script src="{{ asset ("/bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js") }}"></script>
+    
+<script src="{{ asset ("/assets/js/aes.js") }}"></script>
+<script src="{{ asset ("/assets/js/script.js") }}"></script>
     <!-- Bootstrap 3.3.2 JS -->
     <script src="{{ asset ("/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>
     <script  src="{{ asset ("/bower_components/AdminLTE/plugins/datatables/jquery.dataTables.min.js") }}" type="text/javascript" ></script>

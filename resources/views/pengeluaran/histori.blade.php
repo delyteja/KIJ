@@ -26,8 +26,9 @@
         <td><b>Tanggal</b></td>
         <td><b>Waktu</b></td>
         <td><b>Tempat Transaksi</b></td>
+        <td><b>Jumlah</b></td>
         <td><b>Bukti Transaksi</b></td>
-        <td><b>Aksi</b></td>
+        <td ><b>Aksi</b></td>
       </tr>
     </thead>
     <?php setlocale(LC_ALL, 'IND');?>
@@ -37,6 +38,7 @@
         <td>{{strftime(" %d %b %Y", strtotime($p->date_created))}}</td>
         <td>{{$p->time_created}}</td>
         <td>{{$p->lokasi}}</td>
+        <td>Rp {{$p->jumlah}}</td>
         <td><img src="/Bukti/{{ $p->nama_bukti }}" style="width: 150px; height: 150px;"> </td>        
         <!-- <td align="center" width="30px">
           <a href="{{ url('/pemasukan/edit/'.$p->id ) }}" class="btn btn-warning btn-sm" 

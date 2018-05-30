@@ -51,7 +51,6 @@ class PengeluaranController extends Controller
 
     public function histori($opsi)
     {   
-
     	$kategori = Kategori_Pengeluaran::where('nama_kategori', $opsi)->get();
 
     	$pengeluaran = Pengeluaran::where('kategori_id',$kategori[0]->id)->get();
@@ -70,6 +69,9 @@ class PengeluaranController extends Controller
     {
         setlocale(LC_ALL, 'IND');
         $pengeluaran = Pengeluaran::where('kategori_id',$id)->get(); 
+        $kategori = Kategori_Pengeluaran::where('id', $id)->get();
+        $kk = $kategori[0]->nama_kategori;
+        // dd($kk);
         Excel::create('Daftar Pengeluaran', function($excel) use ($pengeluaran)
         {
                       $excel->setTitle('Daftar Pengeluaran');
@@ -93,7 +95,7 @@ class PengeluaranController extends Controller
 
                       });
         })->store('xls', public_path('export\\'));
-
+        return redirect()->action('PengeluaranController@histori',$kk)->with('sukses', 'Pengeluaran ' .$kk. ' Berhasil Diekspor');
     }
 
     public function delete($id)

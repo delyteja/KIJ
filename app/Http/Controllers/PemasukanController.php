@@ -81,10 +81,13 @@ class PemasukanController extends Controller
                               $sheet->row($i+3, array($i+1,strftime(" %d %b %Y", strtotime($rows->date_created)),$rows->time_created,$rows->lokasi,$rows->jumlah
                                 ));
                          }
-
-                      });
+                            });
         })->store('xls', public_path('export\\'));
 
+        $kategori = Kategori_Pemasukan::where('id', $id)->get();
+        $kk = $kategori[0]->nama_kategori;
+
+        return redirect()->action('PemasukanController@detail',$id)->with('sukses', 'Pemasukan ' .$kk. ' Berhasil Diekspor');
     }
 }
 

@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <h3 style="text-align: center;">Saldo Saat Ini</h3>
-                        <h3 style="text-align: center;">Rp. {{ Auth::User()->total }} ,00</h3>
+                        <h3 style="text-align: center;">Rp {{ Auth::User()->total }} ,00</h3>
                     </div>
                 </div>
                 <div class="row">

@@ -49,12 +49,14 @@ class PengeluaranController extends Controller
     }
 
     public function histori($opsi)
-    {
+    {   
+
     	$kategori = Kategori_Pengeluaran::where('nama_kategori', $opsi)->get();
     	$pengeluaran = Pengeluaran::where('kategori_id',$kategori[0]->id)->get();
-    	// dd($pemasukan);
-    	$p = Pengeluaran::where('kategori_id',$kategori[0]->id)->first();
-    	$judul = $p->nama_transaksi;
+    	// dd($opsi,$kategori,$pengeluaran);
+        // dd($pemasukan);
+    	// $p = Pengeluaran::where('kategori_id',$kategori[0]->id)->first();
+        // $judul = $p->nama_transaksi;
     	
     	return view('pengeluaran.histori',compact('pengeluaran','judul'));
     }

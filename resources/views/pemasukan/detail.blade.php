@@ -54,7 +54,7 @@
 
 @else
 <div class="alert alert-warning">
-  <i class="fa fa-exclamation-triangle"></i> Tidak Ada Pemasukan  <b>{{$judul}} </b> 
+  <i class="fa fa-exclamation-triangle"></i> Tidak Ada Pemasukan  <b>{{$kategori->nama_kategori}} </b> 
 </div>
 @endif
 </div>

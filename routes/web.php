@@ -34,7 +34,8 @@ Route::prefix('pengeluaran')->group(function()
 {
 	Route::get('/create','PengeluaranController@create')->name('tambah_pengeluaran');
 	Route::get('/edit/{id}','PengeluaranController@edit');
-	Route::get('/delete/{id}','PengeluaranController@delete');
+	Route::get('/delete/{id}','PengeluaranController@delete')->name('del_pengeluaran');
 	Route::post('/store','PengeluaranController@store');
 	Route::get('/histori/{opsi}', 'PengeluaranController@histori')->name('histori');
+	Route::get('excel/{id}', 'PengeluaranController@excel')->name('excelling');
 });

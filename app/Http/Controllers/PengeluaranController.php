@@ -53,13 +53,14 @@ class PengeluaranController extends Controller
     {   
 
     	$kategori = Kategori_Pengeluaran::where('nama_kategori', $opsi)->get();
+
     	$pengeluaran = Pengeluaran::where('kategori_id',$kategori[0]->id)->get();
     	// dd($opsi,$kategori,$pengeluaran);
         // dd($pemasukan);
     	// $p = Pengeluaran::where('kategori_id',$kategori[0]->id)->first();
         // $judul = $p->nama_transaksi;
     	
-    	return view('pengeluaran.histori',compact('pengeluaran','judul'));
+
     	$pengeluaran = Pengeluaran::where('user_id',Auth::user()->id)->where('kategori_id',$kategori[0]->id)->get();
       $opsi = Kategori_Pengeluaran::findOrFail($kategori[0]->id);
     	return view('pengeluaran.histori',compact('pengeluaran','opsi'));

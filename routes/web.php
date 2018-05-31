@@ -40,3 +40,5 @@ Route::prefix('pengeluaran')->group(function()
 	Route::get('/histori/{opsi}', 'PengeluaranController@histori')->name('histori');
 	Route::get('excel/{id}', 'PengeluaranController@excel')->name('excelling');
 });
+
+Route::post('/add_kategori', 'PemasukanController@addKategori')->name('add_kategori');

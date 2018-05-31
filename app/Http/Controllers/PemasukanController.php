@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Input;
 use App\Pemasukan;
 use App\User;
 use App\Kategori_Pemasukan;
+use App\Kategori_Pengeluaran;
 use Auth;
 use Excel;
 
@@ -44,7 +45,7 @@ class PemasukanController extends Controller
     }
     public function detail($id)
     {  
-    	$pemasukan = Pemasukan::where('kategori_id',$id)->get();
+    	$pemasukan = Pemasukan::where('user_id',Auth::User()->id)->where('kategori_id',$id)->get();
     	$kategori = Kategori_Pemasukan::findOrFail($id);
     	
     	return view('pemasukan.detail',compact('pemasukan','kategori'));
@@ -60,7 +61,7 @@ class PemasukanController extends Controller
     public function excel($id)
     {
         setlocale(LC_ALL, 'IND');
-        $pemasukan=Pemasukan::where('kategori_id',$id)->get(); 
+        $pemasukan=Pemasukan::where('user_id',Auth::User()->id)->where('kategori_id',$id)->get(); 
         Excel::create('Daftar Pemasukan', function($excel) use ($pemasukan)
         {
                       $excel->setTitle('Daftar Pemasukan');
@@ -88,6 +89,30 @@ class PemasukanController extends Controller
         $kk = $kategori[0]->nama_kategori;
 
         return redirect()->action('PemasukanController@detail',$id)->with('sukses', 'Pemasukan ' .$kk. ' Berhasil Diekspor');
+    }
+
+    public function addKategori(Request $request) 
+    {
+        if ($request->kategori == 1)
+        {
+          $p = new Kategori_Pemasukan;
+        }
+        else
+        {
+          $p = new Kategori_Pengeluaran;
+        }
+
+        $p->nama_kategori = $request->nama_kategori;
+        $p->save();
+
+        if ($request->kategori == 1)
+        {
+          return redirect()->action('PemasukanController@create')->with('sukses', 'Kategori berhasil ditambahkan');
+        }
+        else
+        {
+          return redirect()->action('PengeluaranController@create')->with('sukses', 'Kategori berhasil ditambahkan');
+        }
     }
 }
 

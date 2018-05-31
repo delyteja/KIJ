@@ -68,7 +68,7 @@ class PengeluaranController extends Controller
     public function excel($id)
     {
         setlocale(LC_ALL, 'IND');
-        $pengeluaran = Pengeluaran::where('kategori_id',$id)->get(); 
+        $pengeluaran = Pengeluaran::where('user_id',Auth::User()->id)->where('kategori_id',$id)->get(); 
         $kategori = Kategori_Pengeluaran::where('id', $id)->get();
         $kk = $kategori[0]->nama_kategori;
         // dd($kk);

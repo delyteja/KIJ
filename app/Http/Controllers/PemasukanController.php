@@ -45,8 +45,7 @@ class PemasukanController extends Controller
     public function detail($id)
     {  
     	$pemasukan = Pemasukan::where('kategori_id',$id)->get();
-    	$kategori = Kategori_Pemasukan::findOrFail($id);
-    	
+      $kategori = Kategori_Pemasukan::findOrFail($id);    	
     	return view('pemasukan.detail',compact('pemasukan','kategori'));
     }
     public function delete($id)
@@ -85,6 +84,11 @@ class PemasukanController extends Controller
                       });
         })->store('xls', public_path('export\\'));
 
+    }
+
+    public function encrypt()
+    {
+        
     }
 }
 

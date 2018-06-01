@@ -43,10 +43,10 @@
                     <a href="{{ route('login') }}" class="btn btn-default btn-flat">Login</a>
                   </div>
                @else
-                 <div class="pull-left">
+                 <!-- <div class="pull-left">
                     <a href="{{ url('profile') }}" class="btn btn-default btn-flat">Profile</a>
-                  </div>
-                 <div class="pull-right">
+                  </div> -->
+                 <div align="center" stylle="display: inline-block; text-align: center;">
                     <a class="btn btn-default btn-flat" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                     Logout
                     </a>

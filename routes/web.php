@@ -16,9 +16,9 @@ Route::get('/', 'IndexController@index')->name('basic_index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/validasi', 'HomeController@validasi')->name('validasi');
 
 Route::get('refresh_captcha', 'HomeController@refreshCaptcha')->name('refresh_captcha');
-
 
 Route::prefix('pemasukan')->group(function()
 {
@@ -35,7 +35,10 @@ Route::prefix('pengeluaran')->group(function()
 {
 	Route::get('/create','PengeluaranController@create')->name('tambah_pengeluaran');
 	Route::get('/edit/{id}','PengeluaranController@edit');
-	Route::get('/delete/{id}','PengeluaranController@delete');
+	Route::get('/delete/{id}','PengeluaranController@delete')->name('del_pengeluaran');
 	Route::post('/store','PengeluaranController@store');
 	Route::get('/histori/{opsi}', 'PengeluaranController@histori')->name('histori');
+	Route::get('excel/{id}', 'PengeluaranController@excel')->name('excelling');
 });
+
+Route::post('/add_kategori', 'PemasukanController@addKategori')->name('add_kategori');

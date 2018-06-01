@@ -52,6 +52,10 @@
                                 </select>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <button type="button" id="add_kat" class="btn btn-primary" data-toggle="modal" data-target="#modal-investasi">Tambah Kategori</button>
+                            </div>
                             
                             <div class="form-group{{ $errors->has('jumlah') ? ' has-error' : '' }}">
                                 <label for="jumlah" class="col-md-4 control-label">Jumlah   Rp</label>
@@ -98,5 +102,6 @@
                </div>
             </div>
 
+            @include('include.modal')
 
 @endsection

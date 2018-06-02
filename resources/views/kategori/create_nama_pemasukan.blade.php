@@ -13,9 +13,9 @@
                             <div class="form-group{{ $errors->has('jenis_kategori') ? ' has-error' : '' }}">
                                 <label for="jenis_kategori" class="col-md-4 control-label">Pilih Jenis Kategori</label>
                                 <div class="col-md-4">
-                                <select class="form-control" name="role">
-                                    @foreach($jk_keluar as $k)
-                                        <option value="{{$k->id}}">{{$k->nama_jenis}}</option>
+                                <select class="form-control" name="nama_jenis">
+                                    @foreach($jk_masuk as $j)
+                                    <option value="{{$j->id}}">{{$j->nama_jenis}}</option>
                                     @endforeach
                                 </select>
                                 </div>

@@ -14,7 +14,7 @@
                                 <label for="jenis_kategori" class="col-md-4 control-label">Pilih Jenis Kategori</label>
                                 <div class="col-md-4">
                                 <select class="form-control" name="nama_jenis">
-                                    @foreach($jenis as $j)
+                                    @foreach($jk_keluar as $j)
                                     <option value="{{$j->id}}">{{$j->nama_jenis}}</option>
                                     @endforeach
                                 </select>

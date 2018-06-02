@@ -90,7 +90,11 @@ class HomeController extends Controller
 
     public function validasi()
     {
-        return view('validasi');
+        $jk_masuk = JenisKategori::where('role',1)->get();
+        $jk_keluar = JenisKategori::where('role',2)->get();
+        $nama_k_masuk = Kategori_Pemasukan::all();
+        $nama_k_keluar = Kategori_Pengeluaran::all();   
+        return view('validasi',compact('nama_k_masuk', 'nama_k_keluar','jk_masuk','jk_keluar'));
     }
 
     public function refreshCaptcha()

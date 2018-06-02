@@ -98,7 +98,9 @@ class PemasukanController extends Controller
                                 ));
                          }
                             });
-        })->store('xls', public_path('export\\'));
+        })->download('xls');
+
+        // ->store('xls', public_path('export\\'));
 
         $kategori = Kategori_Pemasukan::where('id', $id)->get();
         $kk = $kategori[0]->nama_kategori;

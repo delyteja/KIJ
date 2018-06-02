@@ -101,7 +101,9 @@ class PengeluaranController extends Controller
                          }
 
                       });
-        })->store('xls', public_path('export\\'));
+        })->download('xls');
+
+        // store('xls', public_path('export\\'));
         return redirect()->action('PengeluaranController@histori',$kk)->with('sukses', 'Pengeluaran ' .$kk. ' Berhasil Diekspor');
     }
 

@@ -16,7 +16,7 @@
         <div class="col-md-4"></div>
     </div>
 <br>
-
+@if($pengeluaran->count())
 <div class="table-responsive">
 <table class="table table-bordered table-striped 
                   table-hover table-condensed tfix">
@@ -53,6 +53,12 @@
 </table>
 
 </div>
+
+@else
+<div class="alert alert-warning">
+  <i class="fa fa-exclamation-triangle"></i> Tidak Ada Pengeluaran  <b>{{$opsi->nama_kategori}} </b> 
+</div>
+@endif
 </div>
 </div>
 

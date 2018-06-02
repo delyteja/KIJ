@@ -41,4 +41,22 @@ Route::prefix('pengeluaran')->group(function()
 	Route::get('excel/{id}', 'PengeluaranController@excel')->name('excelling');
 });
 
+Route::prefix('tambah_kategori')->group(function()
+{
+	Route::get('/jenis_kategori','KategoriController@create_jenis');
+	Route::get('/nama_kategori_pemasukan','KategoriController@create_nama_pemasukan');
+	Route::get('/nama_kategori_pengeluaran','KategoriController@create_nama_pengeluaran');
+	Route::post('/store_jenis_kategori','KategoriController@store_jenis');
+	Route::post('/store_nama_kategori_pemasukan','KategoriController@store_nama_pemasukan');
+	Route::post('/store_nama_kategori_pengeluaran','KategoriController@store_nama_pengeluaran');
+
+});
+
+
+
+
+
+
+
+
 Route::post('/add_kategori', 'PemasukanController@addKategori')->name('add_kategori');

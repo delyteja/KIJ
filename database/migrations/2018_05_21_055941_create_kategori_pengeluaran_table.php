@@ -15,6 +15,7 @@ class CreateKategoriPengeluaranTable extends Migration
     {
         Schema::create('kategori_pengeluaran', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('jenis_kategori_id');
             $table->string('nama_kategori');
             $table->timestamps();
         });

@@ -8,6 +8,7 @@ use App\Pemasukan;
 use App\Kategori_Pemasukan;
 use App\Kategori_Pengeluaran;
 use App\User;
+use App\JenisKategori;
 use DB;
 use Auth;
 
@@ -79,8 +80,12 @@ class HomeController extends Controller
         $pemasukan_pie_fix = substr($pemasukan_pie_fix, 0, -1);
 
         // dd($pemasukan_chart_fix, $pengeluaran_chart_fix, $pemasukan_pie_fix, $pengeluaran_pie_fix);
-
-        return view('home', compact('pengeluaran_chart_fix','pemasukan_chart_fix', 'pengeluaran_pie_fix', 'pemasukan_pie_fix', 'k_masuk', 'k_keluar'));
+        $jk_masuk = JenisKategori::where('role',1)->get();
+        $jk_keluar = JenisKategori::where('role',2)->get();
+        $nama_k_masuk = Kategori_Pemasukan::all();
+        $nama_k_keluar = Kategori_Pengeluaran::all();
+        // dd($nama_k_masuk,$nama_k_keluar);
+        return view('home', compact('pengeluaran_chart_fix','pemasukan_chart_fix', 'pengeluaran_pie_fix', 'pemasukan_pie_fix', 'k_masuk', 'k_keluar','jk_masuk','jk_keluar','nama_k_masuk','nama_k_keluar'));
     }
 
     public function validasi()

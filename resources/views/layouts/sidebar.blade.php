@@ -32,7 +32,39 @@
       <ul class="sidebar-menu">
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{ route('home') }}"><i class="fa fa-link"></i> <span>Home</span></a></li>
-        <li><a href="{{ route('validasi') }}"><i class="fa fa-link"></i> <span>Validasi</span></a></li>
+        
+        <li class="treeview">
+            <a href="#"><i class="fa fa-link"></i><span>Tambah Kategori</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+                <li>
+                    <a href="{{URL::to('tambah_kategori/jenis_kategori')}}"><i class="fa fa-link"></i> <span>Tambah Jenis Kategori</span>
+                      <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                      </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{URL::to('tambah_kategori/nama_kategori_pemasukan')}}"><i class="fa fa-link"></i> <span>Tambah Nama<br>Kategori Pemasukan</span>
+                      <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                      </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{URL::to('tambah_kategori/nama_kategori_pengeluaran')}}"><i class="fa fa-link"></i> <span>Tambah Nama<br>Kategori Pengeluaran</span>
+                      <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                      </span>
+                    </a>
+                </li>
+
+          </ul>
+      </li>
+      
         <li class="treeview">
             <a href="#"><i class="fa fa-link"></i><span>Pemasukan</span>
               <span class="pull-right-container">
@@ -40,7 +72,32 @@
               </span>
             </a>
             <ul class="treeview-menu">
+              @foreach($jk_masuk as $km)
                 <li>
+                    <a href="#"><i class="fa fa-link"></i> <span>{{$km->nama_jenis}}</span>
+                      <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                      </span>
+                    </a>
+                </li>
+                <ul class="treeview-menu">
+                  @foreach($nama_k_masuk as $nkm)
+                    <!-- @if($nkm->jenis_kategori_id == $km->id) -->
+                    <li>
+                      <a href="{{URL::to('pemasukan/detail/'.$nkm->id)}}"><i class="fa fa-link"></i> <span>{{$nkm->nama_kategori}}}</span>
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                      </a>        
+                    </li>
+                    <!-- @endif -->
+                  @endforeach
+                </ul>
+              @endforeach
+            </ul>
+          </li>      
+          
+                <!-- <li>
                     <a href="#"><i class="fa fa-link"></i> <span>Pemasukan Rutin</span>
                       <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -70,10 +127,10 @@
                         </li>              
                     </ul>    
 
-                </li>
+                </li> -->
 
-            </ul>
-              <ul class="treeview-menu">
+            <!-- </ul> -->
+              <!-- <ul class="treeview-menu">
                 <li>
                     <a href="#"><i class="fa fa-link"></i> <span>Pemasukan Per 6 Bulan</span>
                       <span class="pull-right-container">
@@ -97,8 +154,8 @@
                         </li>              
                     </ul>    
                 </li>
-            </ul>
-            <ul class="treeview-menu">
+            </ul> -->
+            <!-- <ul class="treeview-menu">
                 <li>
                     <a href="#"><i class="fa fa-link"></i> <span>Pemasukan Tahunan</span>
                       <span class="pull-right-container">
@@ -116,8 +173,8 @@
                     </ul>    
                 </li>
             </ul>
-
-        </li>
+ -->
+        <!-- </li> -->
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Pengeluaran</span>
             <span class="pull-right-container">

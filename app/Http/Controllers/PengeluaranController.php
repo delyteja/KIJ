@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Input;
+use App\JenisKategori;
 use App\Pengeluaran;
 use App\User;
+use App\Kategori_Pemasukan;
 use App\Kategori_Pengeluaran;
 use Auth;
 use Excel;
@@ -17,7 +19,12 @@ class PengeluaranController extends Controller
     {
     	$kategori_pengeluaran = Kategori_Pengeluaran::all();
 
-    	return view ('pengeluaran.create', compact('kategori_pengeluaran'));
+      $jk_masuk = JenisKategori::where('role',1)->get();
+       $jk_keluar = JenisKategori::where('role',2)->get();
+       $nama_k_masuk = Kategori_Pemasukan::all();
+       $nama_k_keluar = Kategori_Pengeluaran::all();
+
+    	return view ('pengeluaran.create', compact('kategori_pengeluaran', 'jk_masuk', 'jk_keluar', 'nama_k_keluar', 'nama_k_masuk'));
     }
 
     public function store(Request $request) 
@@ -54,15 +61,15 @@ class PengeluaranController extends Controller
     	$kategori = Kategori_Pengeluaran::where('nama_kategori', $opsi)->get();
 
     	$pengeluaran = Pengeluaran::where('kategori_id',$kategori[0]->id)->get();
-    	// dd($opsi,$kategori,$pengeluaran);
-        // dd($pemasukan);
-    	// $p = Pengeluaran::where('kategori_id',$kategori[0]->id)->first();
-        // $judul = $p->nama_transaksi;
-    	
+
+      $jk_masuk = JenisKategori::where('role',1)->get();
+       $jk_keluar = JenisKategori::where('role',2)->get();
+       $nama_k_masuk = Kategori_Pemasukan::all();
+       $nama_k_keluar = Kategori_Pengeluaran::all();
 
     	$pengeluaran = Pengeluaran::where('user_id',Auth::user()->id)->where('kategori_id',$kategori[0]->id)->get();
       $opsi = Kategori_Pengeluaran::findOrFail($kategori[0]->id);
-    	return view('pengeluaran.histori',compact('pengeluaran','opsi'));
+    	return view('pengeluaran.histori',compact('pengeluaran','opsi','jk_masuk', 'jk_keluar', 'nama_k_masuk', 'nama_k_keluar'));
     }
 
     public function excel($id)

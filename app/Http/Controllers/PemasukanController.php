@@ -11,12 +11,20 @@ use App\Kategori_Pemasukan;
 use App\Kategori_Pengeluaran;
 use Auth;
 use Excel;
+use App\JenisKategori;
+
 
 class PemasukanController extends Controller
 {
     public function create()
-    {   $kategori = Kategori_Pemasukan::all();
-    	return view('pemasukan.create',compact('kategori'));
+    {  
+      $jk_masuk = JenisKategori::where('role',1)->get();
+       $jk_keluar = JenisKategori::where('role',2)->get();
+       $nama_k_masuk = Kategori_Pemasukan::all();
+       $nama_k_keluar = Kategori_Pengeluaran::all(); 
+
+      $kategori = Kategori_Pemasukan::all();
+    	return view('pemasukan.create',compact('kategori','kategori','jk_masuk','jk_keluar','nama_k_masuk','nama_k_keluar'));
     }
     public function store(Request $request)
     {  //dd($request->nama_transaksi);   
@@ -45,12 +53,17 @@ class PemasukanController extends Controller
     }
     public function detail($id)
     {  
+       $jk_masuk = JenisKategori::where('role',1)->get();
+       $jk_keluar = JenisKategori::where('role',2)->get();
+       $nama_k_masuk = Kategori_Pemasukan::all();
+       $nama_k_keluar = Kategori_Pengeluaran::all();
+
     	$pemasukan = Pemasukan::where('kategori_id',$id)->get();
       $kategori = Kategori_Pemasukan::findOrFail($id);    	
     	$pemasukan = Pemasukan::where('user_id',Auth::User()->id)->where('kategori_id',$id)->get();
     	$kategori = Kategori_Pemasukan::findOrFail($id);
     	
-    	return view('pemasukan.detail',compact('pemasukan','kategori'));
+    	return view('pemasukan.detail',compact('pemasukan','kategori','jk_masuk','jk_keluar','nama_k_masuk','nama_k_keluar'));
     }
     public function delete($id)
     {

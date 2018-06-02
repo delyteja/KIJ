@@ -37,10 +37,9 @@
                                 <label for="jenis_transaksi" class="col-md-4 control-label">Jenis Transaksi</label>
                                 <div class="col-md-4">
                                 <select class="form-control" name="role">
-                                    <option value='1'>Pengeluaran Rutin (Per hari)</option>
-                                    <option value='2'>Pengeluaran Rutin (Per bulan)</option>
-                                    <option value='3'>Pengeluaran Rutin (Per tahun)</option>
-                                    <option value='4'>Pengeluaran Tidak Tentu</option>
+                                    @foreach($jk_keluar as $k)
+                                        <option value="{{$k->id}}">{{$k->nama_jenis}}</option>
+                                    @endforeach
                                 </select>
                                 </div>
                             </div>
@@ -48,8 +47,8 @@
                                 <label for="nama_transaksi" class="col-md-4 control-label">Nama Transaksi</label>
                                 <div class="col-md-4">
                                 <select class="form-control" name="nama_transaksi">
-                                    @foreach ($kategori_pengeluaran as $one)
-                                        <option value="{{ $one['id'] }}">{{ $one['nama_kategori'] }}</option>
+                                    @foreach($nama_k_keluar as $nkm)
+                                    <option value="{{$nkm->id}}">{{$nkm->nama_kategori}}</option>
                                     @endforeach
                                 </select>
                                 </div>

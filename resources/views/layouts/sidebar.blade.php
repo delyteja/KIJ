@@ -79,190 +79,55 @@
                         <i class="fa fa-angle-left pull-right"></i>
                       </span>
                     </a>
-                </li>
                 <ul class="treeview-menu">
                   @foreach($nama_k_masuk as $nkm)
-                    <!-- @if($nkm->jenis_kategori_id == $km->id) -->
+                    @if($nkm->jenis_kategori_id == $km->id)
                     <li>
-                      <a href="{{URL::to('pemasukan/detail/'.$nkm->id)}}"><i class="fa fa-link"></i> <span>{{$nkm->nama_kategori}}}</span>
+                      <a href="{{URL::to('pemasukan/detail/'.$nkm->id)}}"><i class="fa fa-link"></i> <span>{{$nkm->nama_kategori}}</span>
                         <span class="pull-right-container">
                           <i class="fa fa-angle-left pull-right"></i>
                         </span>
                       </a>        
                     </li>
-                    <!-- @endif -->
+                    @endif
                   @endforeach
                 </ul>
+              </li>                
               @endforeach
             </ul>
           </li>      
           
-                <!-- <li>
-                    <a href="#"><i class="fa fa-link"></i> <span>Pemasukan Rutin</span>
-                      <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                      </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li>
-                            <a href="{{URL::to('pemasukan/detail/1')}}"><i class="fa fa-link"></i> <span>Gaji Pokok</span>
-                              <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                              </span>
-                            </a>        
-                        </li>
-                        <li>
-                            <a href="{{URL::to('pemasukan/detail/2')}}"><i class="fa fa-link"></i> <span>Gaji Tunjangan</span>
-                              <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                              </span>
-                            </a>        
-                        </li>
-                        <li>
-                            <a href="{{URL::to('pemasukan/detail/3')}}"><i class="fa fa-link"></i> <span>Pembayaran Kos</span>
-                              <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                              </span>
-                            </a>        
-                        </li>              
-                    </ul>    
-
-                </li> -->
-
-            <!-- </ul> -->
-              <!-- <ul class="treeview-menu">
-                <li>
-                    <a href="#"><i class="fa fa-link"></i> <span>Pemasukan Per 6 Bulan</span>
-                      <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                      </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li>
-                            <a href="{{URL::to('pemasukan/detail/4')}}"><i class="fa fa-link"></i> <span>Panen Padi</span>
-                              <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                              </span>
-                            </a>        
-                        </li>
-                        <li>
-                            <a href="{{URL::to('pemasukan/detail/5')}}"><i class="fa fa-link"></i> <span>Panen Rempah Rempah</span>
-                              <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                              </span>
-                            </a>        
-                        </li>              
-                    </ul>    
-                </li>
-            </ul> -->
-            <!-- <ul class="treeview-menu">
-                <li>
-                    <a href="#"><i class="fa fa-link"></i> <span>Pemasukan Tahunan</span>
-                      <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                      </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li>
-                            <a href="{{URL::to('pemasukan/detail/6')}}"><i class="fa fa-link"></i> <span>Pembayaran Sewa Rumah</span>
-                              <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                              </span>
-                            </a>        
-                        </li>              
-                    </ul>    
-                </li>
-            </ul>
- -->
-        <!-- </li> -->
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Pengeluaran</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          
-          <ul class="treeview-menu">
-            
-            <li>
-              <a href="#"><i class="fa fa-link"></i> <span>Pengeluaran Rutin</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              
-              <ul class="treeview-menu">
-                
+            <a href="#"><i class="fa fa-link"></i><span>Pengeluaran</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              @foreach($jk_keluar as $km)
                 <li>
-                  <a href="{{ route('histori', 'Tagihan Listrik') }}"><i class="fa fa-link"></i> <span>Tagihan Listrik</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ route('histori', 'Tagihan Air') }}"><i class="fa fa-link"></i> <span>Tagihan Air</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ route('histori', 'Biaya Sekolah') }}"><i class="fa fa-link"></i> <span>Biaya Sekolah</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ route('histori', 'Pajak Bulanan') }}"><i class="fa fa-link"></i> <span>Pajak Bulanan</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ route('histori', 'Sewa Rumah') }}"><i class="fa fa-link"></i> <span>Sewa Rumah</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                </li>
-
-              </ul>
-
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-link"></i> <span>Pengeluaran Tidak Tentu</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              
-              <ul class="treeview-menu">
-                
-                <li>
-                  <a href="{{ route('histori', 'Pembayaran Hutang') }}"><i class="fa fa-link"></i> <span>Pembayaran Hutang</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ route('histori', 'Lain Lain') }}"><i class="fa fa-link"></i> <span>Lain Lain</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                </li>
-
-              </ul>
-
-            </li>
-
-          </ul>
-
-        </li>
+                    <a href="#"><i class="fa fa-link"></i> <span>{{$km->nama_jenis}}</span>
+                      <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                      </span>
+                    </a>
+                <ul class="treeview-menu">
+                  @foreach($nama_k_keluar as $nkm)
+                    @if($nkm->jenis_kategori_id == $km->id)
+                    <li>
+                      <a href="{{route('histori', $nkm->nama_kategori)}}"><i class="fa fa-link"></i> <span>{{$nkm->nama_kategori}}</span>
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                      </a>        
+                    </li>
+                    @endif
+                  @endforeach
+                </ul>
+              </li>                
+              @endforeach
+            </ul>
+          </li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

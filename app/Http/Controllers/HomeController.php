@@ -42,7 +42,7 @@ class HomeController extends Controller
         foreach ($pengeluaran_chart as $one)
         {
             // $chart_test .= "{ total_per_bulan: ".$one['total_per_bulan'].", month: ".$one['month'].", year: ".$one['year']." }, ";
-            $pengeluaran_chart_fix .= "{ total_per_bulan: ".$one->total_per_bulan.", month: '".$one->month."', year: ".$one->year." },";
+            $pengeluaran_chart_fix .= "{ x: ".$one->total_per_bulan.", m: '".$one->month."-".$one->year."' },";
         }
         $pengeluaran_chart_fix = substr($pengeluaran_chart_fix, 0, -1);
         // dd($pengeluaran_chart_fix);
@@ -54,7 +54,7 @@ class HomeController extends Controller
         foreach ($pemasukan_chart as $one)
         {
             // $chart_test .= "{ total_per_bulan: ".$one['total_per_bulan'].", month: ".$one['month'].", year: ".$one['year']." }, ";
-            $pemasukan_chart_fix .= "{ total_per_bulan: ".$one->total_per_bulan.", month: '".$one->month."', year: ".$one->year." },";
+            $pemasukan_chart_fix .= "{ x: ".$one->total_per_bulan.", m: '".$one->month."-".$one->year."' },";
         }
         $pemasukan_chart_fix = substr($pemasukan_chart_fix, 0, -1);
         // dd($chart_test);
